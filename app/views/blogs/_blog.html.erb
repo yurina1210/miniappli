@@ -1,0 +1,19 @@
+ <div class="col s12 m7">
+    <div class="card horizontal">
+      <div class="card-image">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+           <%= simple_format(blog.text) %>
+        </div>
+        <div class="card-action">
+          <%= link_to 'SHOW', "/blogs/#{blog.id}", method: :get %>
+          <% if user_signed_in? && current_user.id == blog.user_id %>
+          <%= link_to 'EDIT', "/blogs/#{blog.id}/edit", method: :get %>
+          <%= link_to 'DESTROY', "/blogs/#{blog.id}", method: :delete %>
+          <% end %>
+          <%= render partial: 'likes/like', locals: { blog: blog } %>
+        </div>
+      </div>
+    </div>
+  </div>

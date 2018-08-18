@@ -1,0 +1,27 @@
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<% if user_signed_in? %>
+
+  <% if blog.like_user(current_user.id) %>
+  <%= button_to blog_like_path(id: blog.likes.ids, blog_id: blog.id), method: :delete, id: "like-buttons", remote: true do %>
+    <i class="material-icons">favorite</i>
+      <span>
+        <%= blog.likes_count %>
+      </span>
+    <% end %>
+
+  <% else %>
+    <%= button_to blog_likes_path(blog), id: "like-buttons", remote: true do %>
+    <i class="material-icons">favorite_border</i>
+      <span>
+        <%= blog.likes_count %>
+      </span>
+    <% end %>
+  <% end %>
+
+
+<% else %>
+  <i class="material-icons">favorite_border</i>
+    <span>
+      <%= blog.likes_count %>
+    </span>
+<% end %>

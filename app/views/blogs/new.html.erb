@@ -1,0 +1,13 @@
+<div class="row">
+  <%= form_for @blog do |f| %>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea" name="text"></textarea>
+          <label for="textarea1">本文</label>
+        </div>
+        <input type="submit" value="送信">
+      </div>
+    </form>
+  <% end %>
+</div>
